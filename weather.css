@@ -1,0 +1,13 @@
+body{
+    background-image: url('https://source.unsplash.com/1600x900/?landscape');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.bgstyle{
+    /* background-color: rgba(255, 255, 255, 0.192);   */
+    background-color: rgba(43, 248, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid #0dcaf0;
+    box-shadow: 0px 0px 10px 0.5px #0dcaf0;
+}
