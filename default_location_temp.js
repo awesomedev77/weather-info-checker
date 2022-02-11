@@ -1,12 +1,12 @@
-/* const authoriazation = 'mWCeMNBFJx_nnzEUBqxiO6gU_0gqtUGKUwiAIvrkD54'
-const url = `https://api.unsplash.com/photos/?client_id=${authoriazation}`;
-fetch(url)
-    .then(resp => resp.json())
-    .then(photolink => console.log(photolink)); */
+const searchBtn = document.getElementById('searchBtn');
+const input = document.getElementById('searchbox');
 
+input.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        searchBtn.click();
+    }
+});
 
-
-//get current locatiion and api
 const apikey = `dfd2f17ddf980011d1127ca85a3603d6`
 
 function getCurrentWeatherData() {
