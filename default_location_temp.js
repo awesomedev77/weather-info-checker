@@ -6,15 +6,11 @@ input.addEventListener('keypress', function (e) {
         searchBtn.click();
     }
 });
-
-const apikey = `dfd2f17ddf980011d1127ca85a3603d6`
-
 function getCurrentWeatherData() {
     navigator.geolocation.getCurrentPosition((success) => {
-        //console.log(success);
         let { latitude, longitude } = success.coords;
 
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&appid=${apikey}`)
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&appid=${weather}`)
             .then(resp => resp.json())
             .then(data => deafultWeatherlog(data));
     })
@@ -23,7 +19,6 @@ function getCurrentWeatherData() {
 getCurrentWeatherData()
 
 const deafultWeatherlog = (data) => {
-    //console.log(data)
     const getWeatherlogContainer = document.getElementById('weatherResultContainer')
     const tempInKelving = data.current.temp
     const tempInCelsius = tempInKelving - 273.15

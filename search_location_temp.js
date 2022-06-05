@@ -1,11 +1,10 @@
-const apiKey = 'dfd2f17ddf980011d1127ca85a3603d6'
-
+const weather = "dfd2f17ddf980011d1127ca85a3603d6";
 const runWeatherMap = async () => {
     const getSearchInfo = document.getElementById('searchbox')
     const getCityname = getSearchInfo.value
     getSearchInfo.value = '';
 
-    const url = (`https://api.openweathermap.org/data/2.5/weather?q=${getCityname}&appid=${apiKey}`);
+    const url = (`https://api.openweathermap.org/data/2.5/weather?q=${getCityname}&appid=${weather}`);
     const resp = await fetch(url)
     const tempdata = await resp.json();
     if (tempdata.cod == 200) {
@@ -23,11 +22,9 @@ const runWeatherMap = async () => {
 }
 
 const getTmepData = (tempdata, getCityname) => {
-    //console.log(tempdata)
 
     const getWeatherlogContainer = document.getElementById('weatherResultContainer')
     getWeatherlogContainer.textContent = ''
-    //console.log(tempdata)
 
     const tempInCelsius = tempdata.main.temp - 273.15
     const maxTemp = tempdata.main.temp_max - 273.15
@@ -56,21 +53,3 @@ const getTmepData = (tempdata, getCityname) => {
     document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + getCityname + "')"
     getWeatherlogContainer.appendChild(displayCurrentWeatherlog)
 }
-
-/* const authoriazation = 'mWCeMNBFJx_nnzEUBqxiO6gU_0gqtUGKUwiAIvrkD54'
-const url = `https://api.unsplash.com/search/photos?query=khulna&client_id=mWCeMNBFJx_nnzEUBqxiO6gU_0gqtUGKUwiAIvrkD54`;
-fetch(url)
-    .then(resp => resp.json())
-    .then(photolink => getPhotos(photolink));
-console.log(url)
-const getPhotos = (photosData) => {
-    console.log(photosData)
-    const imgContainer = document.getElementById('bg-img')
-    const img = photosData.results[2].urls.full
-    const createImg = document.createElement('img')
-    createImg.classList = 'img'
-    createImg.src = `${img}`
-    imgContainer.appendChild(createImg)
-}
-
-`https://api.unsplash.com/photos/?client_id=${authoriazation}`  */
